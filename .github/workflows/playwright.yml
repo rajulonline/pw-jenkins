@@ -82,6 +82,8 @@ jobs:
           node-version: 14
       - name: Check out code
         uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.inputs.branch }}
       - name: Run workflow on branch
         run: |
           if [[ ${{ github.event.inputs.branch }} == "main" ]]; then
