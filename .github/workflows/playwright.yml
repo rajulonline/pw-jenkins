@@ -67,24 +67,30 @@ on:
       url:
         description: 'URL to test'
         required: true
+      branch:
+        description: 'Branch name'
+        required: true
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: 14
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run Playwright tests
-        run: npm test -- "${{ github.event.inputs.url }}"
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Run workflow on branch
+        run: |
+          if [[ ${{ github.event.inputs.branch }} == "main" ]]; then
+            echo "Running workflow on main branch"
+            # Add your workflow steps here
+          else
+            echo "Branch not supported ${{ github.event.inputs.branch }}"
+            npm install
+            npm test -- "${{ github.event.inputs.url }}"
+          fi  
         env:
           CI: true
