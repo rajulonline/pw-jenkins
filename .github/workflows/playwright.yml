@@ -70,6 +70,7 @@ on:
       branch:
         description: 'Branch name'
         required: true
+        default: 'main'
 
 jobs:
   test:
