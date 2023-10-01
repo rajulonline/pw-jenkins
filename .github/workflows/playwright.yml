@@ -93,7 +93,8 @@ jobs:
           else
             echo "Branch not supported ${{ github.event.inputs.branch }}"
             npm install
-            npm test -- "${{ github.event.inputs.url }}"
+            #npm test -- "${{ github.event.inputs.url }}"
+            npx playwright test
           fi  
         env:
           CI: true
