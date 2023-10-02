@@ -91,6 +91,8 @@ jobs:
             # Add your workflow steps here
           else
             echo "Branch on which the test is run supported ${{ github.event.inputs.branch }}"
+            npm install
+            npm install @playwright/test     
             npx playwright install 
             npx playwright test
           fi  
