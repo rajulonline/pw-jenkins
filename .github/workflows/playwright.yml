@@ -86,8 +86,7 @@ jobs:
           ref: ${{ github.event.inputs.branch }}        
       - name: Run workflow on branch
         env:
-            BEARER_TOKEN: ${{secrets.BEARER_TOKEN}}
-            CI: true
+            BEARER_TOKEN: ${{secrets.BEARER_TOKEN}}            
         run: |
           if [[ ${{ github.event.inputs.branch }} == "main" ]]; then
             echo "Running workflow on main branch"
