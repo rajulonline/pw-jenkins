@@ -90,7 +90,7 @@ jobs:
           if [[ ${{ github.event.inputs.branch }} == "main" ]]; then
             echo "Running workflow on main branch"
             # Add your workflow steps here
-            echo "This is the secret token ${{secrets.BEARER_TOKEN}}"
+            echo "This is the secret token ${{secrets.BEARER_TOKEN1}}"
           else
             echo "Branch not supported ${{ github.event.inputs.branch }}"
             npm install
