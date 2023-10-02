@@ -87,6 +87,7 @@ jobs:
       - name: Run workflow on branch
         env:
             BEARER_TOKEN: ${{secrets.BEARER_TOKEN}}
+            CI: true
         run: |
           if [[ ${{ github.event.inputs.branch }} == "main" ]]; then
             echo "Running workflow on main branch"
@@ -97,6 +98,5 @@ jobs:
             npm install @playwright/test     
             npx playwright install 
             npx playwright test
-          fi  
-        env:
-          CI: true
+          fi          
+          
