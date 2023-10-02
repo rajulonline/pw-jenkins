@@ -88,9 +88,9 @@ jobs:
             echo "Running workflow on main branch"
             # Add your workflow steps here
           else
-            echo "Branch not supported ${{ github.event.inputs.branch }}"
-            npm install
-            npm test -- "${{ github.event.inputs.url }}"
+            echo "Branch on which the test is run supported ${{ github.event.inputs.branch }}"
+            npx playwright install 
+            npx playwright test
           fi  
         env:
           CI: true
