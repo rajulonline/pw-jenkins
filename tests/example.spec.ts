@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test('has title', async ({ page }) => {
   await page.goto('https://playwright.dev/');
 const gittoken = process.env.BEARER_TOKEN;
-console.log(`This is the gittoke ${gittoken}`);
+console.log(`This is the gittoken ${gittoken}`);
   // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle(/Tamil/);
   await expect(page).toHaveURL(/playwright/);
